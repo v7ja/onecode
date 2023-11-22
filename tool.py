@@ -1,146 +1,60 @@
-import requests
-def send_follow(username,password,coo1,coo2):
-    tragrt=input('ENTAR USERNAME TO SEND FOLLOWERS : ')
-    cookies = {
-    '_ga': 'GA1.2.379003127.1700346804',
-    '_gid': 'GA1.2.2030621174.1700346804',
-    coo1: coo2,
-    }
-    headers = {
-    'authority': 'instamoda.org',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'ar-AE,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'referer': 'https://instamoda.org/tools',
-    'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 12; SM-M317F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    }
-    response = requests.get('https://instamoda.org/tools/send-follower', cookies=cookies, headers=headers)
-    for cookie_name, cookie_value in response.cookies.items():pass
-    cookies = {
-    '_ga': 'GA1.2.379003127.1700346804',
-    '_gid': 'GA1.2.2030621174.1700346804',
-    cookie_name:cookie_value,
-    }
-    headers = {
-    'authority': 'instamoda.org',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'ar-AE,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'cache-control': 'max-age=0',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://instamoda.org',
-    'referer': 'https://instamoda.org/tools/send-follower',
-    'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 12; SM-M317F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    }
-    params = {
-    'formType': 'findUserID',
-    }
-    data = {
-    'username': tragrt,
-    }
-    response = requests.post('https://instamoda.org/tools/send-follower', params=params, cookies=cookies, headers=headers, data=data)
-    id=response.text.split('<input type="hidden" name="userID" value="')[1].split('"')[0]
-    cookies = {
-    '_ga': 'GA1.2.379003127.1700346804',
-    '_gid': 'GA1.2.2030621174.1700346804',
-    cookie_name:cookie_value,
-    }
-    headers = {
-    'authority': 'instamoda.org',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'ar-AE,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'cache-control': 'max-age=0',
-    'referer': 'https://instamoda.org/tools/send-follower',
-    'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 12; SM-M317F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-}
-    response = requests.get(f'https://instamoda.org/tools/send-follower/{id}', cookies=cookies, headers=headers)
-    cookies = {
-    '_ga': 'GA1.2.379003127.1700346804',
-    '_gid': 'GA1.2.2030621174.1700346804',
-    cookie_name:cookie_value,
-    }
-    headers = {
-    'authority': 'instamoda.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'ar-AE,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://instamoda.org',
-    'referer': f'https://instamoda.org/tools/send-follower/{id}','sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 12; SM-M317F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'x-requested-with': 'XMLHttpRequest',
-    }
-    params = {
-    'formType': 'send',
-    }
-    data = {
-    'adet': '300',
-    'userID': id,
-    'userName': tragrt,
-    }
-    response = requests.post(
-    f'https://instamoda.org/tools/send-follower/{id}',
-    params=params,
-    cookies=cookies,
-    headers=headers,
-    data=data,
-    )
-    if response.json()['status']=='success':
-        print(f'DONE SEND 300 FOLLOWES TO @{tragrt} ')
-username=input('ENTAR USERNAME TO LOGIN : ')
-password=input('ENTAR PASSWORD TO LOGIN : ')
-headers = {
-    'authority': 'instamoda.org',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    'accept-language': 'ar-AE,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://instamoda.org',
-    'referer': 'https://instamoda.org/login',
-    'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 12; SM-M317F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'x-requested-with': 'XMLHttpRequest',
-}
-params = ''
-data = {
-    'username': username,
-    'password': password,
-    'userid': '',
-    'antiForgeryToken': '92e040589f9f0237f5ddd02297bbcf92',
-}
-response = requests.post('https://instamoda.org/login', params=params, headers=headers, data=data)
-if response.json()['status']=='success':
-    for cookie_name, cookie_value in response.cookies.items():pass
-    send_follow(username,password,cookie_name,cookie_value)
-else:
-    print(response.text)
+import requests,sys,os,json,random 
+from rich import print as SS
+from rich.panel import Panel as g
+from rich.console import Console
+from user_agent import generate_user_agent
+Ss = Console()
+ok,tok,bad=0,0,0
+AB_KH='\033[37m'
+AH_T='\033[91m'
+AKH_T='\033[92m'
+AS_F='\033[93m'
+print(AH_T)
+rr="By : aBooD YaBh"                           
+print(rr)
+id=input(f'{AB_KH}   ID  „:')
+token=input('   TOKIN  „:')
+os.system('clear')
+print(rr)
+def us():
+	saa="1234567890qwertyuiopasdfghjklzxcvbnm"
+	see="._"
+	while True:
+	       s = str(''.join((random.choice(saa) for i in range(1))))
+	       ss = str(''.join((random.choice(saa) for i in range(1))))
+	       sss = str(''.join((random.choice(saa) for i in range(1))))
+	       ee = str(''.join((random.choice(see) for i in range(1))))
+	       e = str(''.join((random.choice(saa) for i in range(1))))
+	       h = (s+ss+ee+sss)
+	       hh = (sss+e+s+ss)
+           hhh = saa+e+s+e+ss)
+	       j= (h, hh, hhh)
+	       user = random.choice(j)
+	       sgg(user)
+def sgg(user):
+    gd = str(generate_user_agent())
+    global ok,tok,bad
+    sys.stdout.write(f'\r   {AKH_T}OK {ok}{AB_KH} - {AH_T}BAD {bad} {AB_KH}- {AS_F}TOKEN {tok} {AKH_T}'),
+    sys.stdout.flush()
+    headers = {'Host':'www.instagram.com','content-length':'85','sec-ch-ua':'" Not A;Brand";v="99", "Chromium";v="101"','x-ig-app-id':'936619743392459','x-ig-www-claim':'0','sec-ch-ua-mobile':'?0','x-instagram-ajax':'81f3a3c9dfe2','content-type': 'application/x-www-form-urlencoded','accept':'*/*','x-requested-with':'XMLHttpRequest','x-asbd-id':'198387','user-agent':f'{gd}','x-csrftoken':'jzhjt4G11O37lW1aDFyFmy1K0yIEN9Qv','sec-ch-ua-platform':'"Linux"','origin':'https://www.instagram.com','sec-fetch-site':'same-origin','sec-fetch-mode':'cors','sec-fetch-dest':'empty','referer':'https://www.instagram.com/accounts/emailsignup/','accept-encoding':'gzip, deflate, br','accept-language':'en-IQ,en;q=0.9','cookie':'csrftoken=jzhjt4G11O37lW1aDFyFmy1K0yIEN9Qv','cookie':'mid=YtsQ1gABAAEszHB5wT9VqccwQIUL','cookie':'ig_did=227CCCC2-3675-4A04-8DA5-BA3195B46425','cookie':'ig_nrcb=1'
+	}
+    data= f'email=sgahahfdggsdfs%40gmail.com&username={user}&first_name=&opt_into_one_tap=false'
+    res = requests.post('https://www.instagram.com/accounts/web_create_ajax/attempt/', headers=headers, data=data).text
+#    res_dict = json.loads(res)
+    if "status" in res and "fail" in res:
+    	bad+=1
+    elif '"errors": {"username":' in res or '"code": "username_is_taken"' in res:
+    	tok+=1
+    else:
+    	ok+=1
+    	print('\n')
+    	print('   '*10)
+    	gg = f'         [green] \nUSER • {user} '
+    	SS(g(gg))
+    	tle = f"  New UserName : {user}\n By : @c_7c7"
+    	requests.post(f'https://api.telegram.org/bot{token}/sendMessage?chat_id={id}&text={tle}')
+#us()
+import threading
+for i in range(20):
+at=threading.Thread(target=us,args=())
+ a.start()
